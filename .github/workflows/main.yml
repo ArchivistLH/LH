@@ -51,7 +51,7 @@ jobs:
         run: |
           file=$(find -type f -name "*.mp4" -or -type f -name "*.mkv");
           fileName=${file:2}
-          rclone copy "$file" ob:📥youtube-archive/WindahBasudara --config rclone.conf 
+          rclone copy "$file" ob:📥youtube-archive/LuthfiHalimawan --config rclone.conf 
       - name: Clear cache
         if: steps.upload.outcome == 'success'
         uses: actions/github-script@v6
@@ -81,7 +81,7 @@ jobs:
 
       - name: Download livestream
         env:
-          channelid: WindahBasudara
+          channelid: LuthfiHalimawan
         if: steps.predownload.outcome == 'success'
         continue-on-error: true
         run: yt-dlp https://www.youtube.com/@"$channelid"/live --live-from-start
